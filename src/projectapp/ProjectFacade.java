@@ -15,7 +15,7 @@ public class ProjectFacade {
     public ProjectFacade(JPanel mainPanel, CardLayout cardLayout) {
         // Initialize CreateProject with mainPanel and cardLayout
         this.createProject = new CreateProject(mainPanel, cardLayout);
-        this.addConsultant = new AddConsultant();
+        this.addConsultant = new AddConsultant(mainPanel, cardLayout);
         this.settings = new Settings();
         this.showProjects = new ShowProjects();
     }
@@ -32,7 +32,7 @@ public class ProjectFacade {
 
     // Facade method to add a consultant
     public void addConsultant() {
-        addConsultant.add();
+        addConsultant.showConsultantTypeDialog();
     }
 
     // Facade method to open settings

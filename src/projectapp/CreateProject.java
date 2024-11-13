@@ -238,6 +238,7 @@ public class CreateProject {
         JButton addSubtaskButton = createButton("Add Subtask", new Color(150, 130, 190), e -> {
             int selectedRow = taskTable.getSelectedRow();
             if (selectedRow != -1) {
+                // Command pattern to add a Subtask
                 CommandInvoker commandInvoker = new CommandInvoker();
                 commandInvoker.setCommand(new AddSubtaskCommand(model, taskTable, project));
                 commandInvoker.executeCommand();
@@ -247,13 +248,13 @@ public class CreateProject {
         });
 
         JButton addMemberButton = createButton("Add Member", new Color(120, 100, 160), e -> {
-            // Command to add a member (adjusted for team model)
+            // Command pattern to add a member 
             CommandInvoker commandInvoker = new CommandInvoker();
             commandInvoker.setCommand(new AddMemberCommand(new DefaultListModel<>()));
             commandInvoker.executeCommand();
         });
 
-        JButton backButton = createButton("Back", new Color(200, 100, 100), e -> cardLayout.show(mainPanel, "projectOptions"));
+        JButton backButton = createButton("Back", new Color(200, 100, 100), e -> cardLayout.show(mainPanel, "homeScreen"));
 
         buttonPanel.add(addTaskButton);
         buttonPanel.add(addSubtaskButton);
@@ -297,6 +298,7 @@ public class CreateProject {
         taskButtonPanel.add(taskTypeComboBox);
 
         JButton addTaskButton = createButton("Add Task", new Color(120, 100, 160), e -> {
+            // Command pattern to add a task
             CommandInvoker commandInvoker = new CommandInvoker();
             String selectedTaskType = (String) taskTypeComboBox.getSelectedItem();
             commandInvoker.setCommand(new AddTaskCommand(model, project, selectedTaskType));
@@ -306,6 +308,7 @@ public class CreateProject {
         JButton addSubtaskButton = createButton("Add Subtask", new Color(150, 130, 190), e -> {
             int selectedRow = taskTable.getSelectedRow();
             if (selectedRow != -1) {
+                // Command pattern to add a SubTask
                 CommandInvoker commandInvoker = new CommandInvoker();
                 commandInvoker.setCommand(new AddSubtaskCommand(model, taskTable, project));
                 commandInvoker.executeCommand();
@@ -314,7 +317,7 @@ public class CreateProject {
             }
         });
 
-        JButton backButton = createButton("Back", new Color(200, 100, 100), e -> cardLayout.show(mainPanel, "projectOptions"));
+        JButton backButton = createButton("Back", new Color(200, 100, 100), e -> cardLayout.show(mainPanel, "homeScreen"));
 
         taskButtonPanel.add(addTaskButton);
         taskButtonPanel.add(addSubtaskButton);

@@ -241,9 +241,8 @@ public class ProjectApp extends JFrame {
         createProjectButton.setBorderPainted(false);
 
         createProjectButton.addActionListener(e -> projectFacade.createNewProject());
+        panel.add(createProjectButton);
 
-        // Add button to the panel
-        panel.add(createProjectButton, BorderLayout.CENTER);
 
         // "Show projects"
         JButton showProjectsButton = new JButton("");
